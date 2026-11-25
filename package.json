@@ -1,0 +1,17 @@
+{
+  "name": "tiffany-watson-website",
+  "version": "1.0.0",
+  "description": "Tiffany Watson — Official Editorial Portfolio, Lookbook & Private Concierge",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "tiffany-watson",
+    "portfolio",
+    "web3forms",
+    "concierge"
+  ],
+  "author": "Tiffany Watson",
+  "license": "ISC"
+}
