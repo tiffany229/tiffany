@@ -137,6 +137,39 @@ document.addEventListener('DOMContentLoaded', () => {
   if (lightboxPrev) lightboxPrev.addEventListener('click', () => openLightboxAt(currentIndex - 1));
   if (lightboxNext) lightboxNext.addEventListener('click', () => openLightboxAt(currentIndex + 1));
 
+  // Touch Swipe Gesture for Lightbox on Mobile Devices
+  let touchStartX = 0;
+  let touchEndX = 0;
+  if (lightbox) {
+    lightbox.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    lightbox.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const swipeDistance = touchEndX - touchStartX;
+      if (Math.abs(swipeDistance) > 40) {
+        if (swipeDistance > 0) {
+          openLightboxAt(currentIndex - 1); // Swiped right -> previous
+        } else {
+          openLightboxAt(currentIndex + 1); // Swiped left -> next
+        }
+      }
+    }, { passive: true });
+  }
+
+  // Exclusive Accordion for FAQ items
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach((item) => {
+    item.addEventListener('toggle', () => {
+      if (item.open) {
+        faqItems.forEach((other) => {
+          if (other !== item) other.open = false;
+        });
+      }
+    });
+  });
+
   if (lightbox) {
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) closeLightbox();
