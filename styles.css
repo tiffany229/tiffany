@@ -358,6 +358,18 @@ a {
   font-weight: 500;
 }
 
+.top-bar-social {
+  display: inline-flex;
+  align-items: center;
+  color: var(--gold-champagne);
+  transition: all var(--transition);
+  font-weight: 500;
+}
+
+.top-bar-social:hover {
+  color: var(--crimson-primary);
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -598,6 +610,36 @@ a {
 .seal-sub {
   font-size: 0.68rem;
   color: var(--gold-champagne);
+}
+
+.social-badge {
+  cursor: pointer;
+}
+
+.social-badge-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+
+.ig-badge .social-badge-icon {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(214, 36, 159, 0.35);
+}
+
+.of-badge .social-badge-icon {
+  background: #00aff0;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 175, 240, 0.35);
+}
+
+.social-badge:hover .social-badge-icon {
+  transform: scale(1.08);
 }
 
 /* Hero Right Column Visuals */
@@ -1907,6 +1949,43 @@ a {
   opacity: 1;
 }
 
+.footer-social-strip {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 1.15rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-dark);
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: all var(--transition);
+}
+
+.footer-social-btn.ig-btn:hover {
+  border-color: #d6249f;
+  background: rgba(214, 36, 159, 0.12);
+  color: #ff80b0;
+  box-shadow: 0 4px 18px rgba(214, 36, 159, 0.25);
+}
+
+.footer-social-btn.of-btn:hover {
+  border-color: #00aff0;
+  background: rgba(0, 175, 240, 0.12);
+  color: #38bdf8;
+  box-shadow: 0 4px 18px rgba(0, 175, 240, 0.25);
+}
+
 .footer-mail-icon {
   width: 44px;
   height: 44px;
@@ -2422,6 +2501,17 @@ a {
   }
 
   .concierge-note-text {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-social-strip {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-social-btn {
+    width: 100%;
     justify-content: center;
     text-align: center;
   }
